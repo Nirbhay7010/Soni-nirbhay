@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soni Nirbhay — Data Scientist</title>
+  <meta name="description" content="Portfolio of Soni Nirbhay, Data Scientist: projects, skills, experience, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%2300b894'/%3E%3Ctext x='50' y='58' font-size='46' text-anchor='middle' fill='white' font-family='Inter, system-ui, -apple-system, Segoe UI, Roboto'%3ESN%3C/text%3E%3C/svg%3E"/>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a32cc; /* glass */
+      --text: #e7ecff;
+      --muted: #a6b0d4;
+      --brand: #7c5cff; /* primary */
+      --brand-2: #00e6a7; /* accent */
+      --card: #0f152b;
+      --ring: #2b345a;
+      --shadow: 0 20px 50px rgba(0,0,0,0.45);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --maxw: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 80% -10%, #1d1450, transparent 60%),
+                  radial-gradient(1200px 800px at -10% 20%, #004d61, transparent 55%),
+                  var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Layout */
+    .container { width: min(100%, calc(var(--maxw) + 32px)); margin: 0 auto; padding: 0 16px; }
+    header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px); background: #0b1020b3; border-bottom: 1px solid #20284a; }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.3px; }
+    .brand .logo { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--brand-2)); display:flex; align-items:center; justify-content:center; box-shadow: var(--shadow); font-weight: 800; }
+    .brand .logo span { color: #fff; }
+    nav a { color: var(--muted); text-decoration: none; margin: 0 10px; padding: 8px 10px; border-radius: 8px; transition: 150ms ease; }
+    nav a:hover { color: var(--text); background: #ffffff14; }
+
+    .theme-toggle { border: 1px solid var(--ring); background: #ffffff0a; color: var(--text); border-radius: 999px; padding: 8px 12px; cursor: pointer; }
+
+    /* Hero */
+    .hero { padding: 72px 0 36px; }
+    .hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center; }
+    .tag { display:inline-flex; align-items:center; gap:8px; background:#ffffff12; border:1px solid var(--ring); color:var(--muted); padding:6px 10px; border-radius:999px; font-size: 12px; }
+    h1 { font-size: clamp(28px, 5vw, 48px); margin: 12px 0 4px; line-height: 1.15; }
+    .subtitle { font-size: clamp(15px, 2.5vw, 18px); color: var(--muted); max-width: 60ch; }
+    .cta { display:flex; flex-wrap: wrap; gap:12px; margin-top: 20px; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius: 12px; text-decoration:none; border: 1px solid var(--ring); color: var(--text); background: #ffffff0e; transition: 150ms ease; }
+    .btn:hover { transform: translateY(-1px); background: #ffffff18; }
+    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); border: none; }
+    .btn.primary:hover { filter: brightness(1.06); }
+
+    .card { background: linear-gradient(180deg, #ffffff10, #ffffff06); border: 1px solid var(--ring); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+    .photo { aspect-ratio: 1/1; border-radius: var(--radius-lg); overflow: hidden; border:1px solid var(--ring); background: #0e1430; display:grid; place-items:center; }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display:block; }
+    .photo .placeholder { font-size: 64px; opacity: 0.2; }
+
+    /* Sections */
+    section { padding: 28px 0 8px; }
+    .section-title { display:flex; align-items:center; justify-content:space-between; margin-bottom: 16px; }
+    .section-title h2 { margin: 0; font-size: 22px; letter-spacing: 0.2px; }
+    .grid { display: grid; gap: 16px; }
+
+    /* About & Skills */
+    .about { padding: 20px; }
+    .skills { display:flex; flex-wrap:wrap; gap:10px; margin-top: 8px; }
+    .chip { border:1px solid var(--ring); background:#ffffff08; padding:8px 12px; border-radius: 999px; font-size: 13px; }
+
+    /* Projects */
+    .projects { grid-template-columns: repeat(3, 1fr); }
+    .project { padding: 16px; display:flex; flex-direction:column; gap:12px; }
+    .project h3 { margin: 0; font-size: 18px; }
+    .meta { color: var(--muted); font-size: 13px; }
+    .project .links { display:flex; gap:10px; margin-top:auto; }
+
+    /* Timeline (Experience/Education) */
+    .timeline { position: relative; padding-left: 20px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: #2b345a; }
+    .t-item { position: relative; margin: 0 0 16px 0; padding: 12px 14px 12px 16px; background: #ffffff08; border:1px solid var(--ring); border-radius: 12px; }
+    .t-item::before { content: ""; position: absolute; left: -13px; top: 16px; width: 10px; height: 10px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-radius: 999px; }
+    .t-item h3 { margin: 0 0 4px; font-size: 16px; }
+    .t-item .when { font-size: 12px; color: var(--muted); }
+
+    /* Contact */
+    .contact { padding: 16px; display:grid; gap: 12px; }
+    .row { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    label { font-size: 13px; color: var(--muted); }
+    input, textarea { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid var(--ring); background: #0d1430; color: var(--text); outline: none; }
+    textarea { min-height: 120px; resize: vertical; }
+    .contact .btn { width: max-content; }
+
+    /* Footer */
+    footer { padding: 26px 0 40px; color: var(--muted); font-size: 14px; }
+    .social { display:flex; gap:12px; }
+    .social a { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--ring); padding:8px 12px; border-radius:12px; text-decoration:none; color:var(--text); background:#ffffff08; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .projects { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      nav { display: none; }
+      .projects { grid-template-columns: 1fr; }
+      .row { grid-template-columns: 1fr; }
+    }
+
+    /* Light mode (toggle-able) */
+    .light {
+      --bg: #f6f7fb;
+      --panel: #ffffffee;
+      --text: #0f1426;
+      --muted: #4a5877;
+      --card: #ffffff;
+      --ring: #e7eaf3;
+      background: radial-gradient(1200px 800px at 80% -10%, #dfe0ff, transparent 60%),
+                  radial-gradient(1200px 800px at -10% 20%, #c7f7ef, transparent 55%),
+                  var(--bg);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo"><span>SN</span></div>
+        <span>Soni Nirbhay</span>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌗</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div>
+          <span class="tag">🔍 Data Scientist • Machine Learning • AI</span>
+          <h1>Hi, I'm <span style="background: linear-gradient(135deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent;">Soni Nirbhay</span></h1>
+          <p class="subtitle">I turn messy, high‑dimensional data into clear, business‑ready insights. I build predictive models, robust data pipelines, and human‑friendly dashboards that drive decisions.</p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">💼 View Projects</a>
+            <a class="btn" href="#" onclick="alert('soninirbhay74@gmail.com')">✉️Email Me</a>
+
+            <a class="btn" href="#" download>⬇️ Download Resume</a>
+          </div>
+        </div>
+        <div class="photo card">
+          <!-- Replace src with your photo URL -->
+          <img src="nirbhay1.jpg" alt="Soni Nirbhay portrait placeholder" />
+        </div>
+      </div>
+    </section>
+
+    <!-- About & Skills -->
+    <section id="about">
+      <div class="card about">
+        <div class="section-title">
+          <h2>About Me</h2>
+          <a class="btn" href="https://github.com/Nirbhay7010/Soni-nirbhay.git" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+        <p>
+          I'm a data scientist based in India. My sweet spot is the intersection of <strong>machine learning</strong>, <strong>analytics</strong>, and <strong>product thinking</strong>—from exploratory analysis to model deployment.
+          I enjoy translating business questions into measurable experiments and production‑grade models.
+        </p>
+        <div id="skills" class="skills">
+          <span class="chip">Python</span>
+          <span class="chip">R</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">NumPy</span>
+          <span class="chip">Matplotlib</span>
+          <span class="chip">scikit‑learn</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">PyTorch</span>
+          <span class="chip">Feature Engineering</span>
+          <span class="chip">Tableau</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">Git</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">Java</span>
+          <span class="chip">c#</span>
+          <span class="chip">c++</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-title">
+        <h2>Projects</h2>
+        <a class="btn" href="https://www.linkedin.com/in/soni-nirbhay" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+      <div class="grid projects">
+        <article class="card project">
+          <div>
+            <h3>Customer Churn Prediction</h3>
+            <p class="meta">Python, scikit‑learn, XGBoost · 89% accuracy</p>
+            <p>Engineered features from transactional and support data; trained gradient boosting models; built SHAP explanations; shipped a weekly scoring job.</p>
+          </div>
+          <div class="links">
+            <a class="btn" href="#" target="_blank">Code</a>
+            <a class="btn" href="#" target="_blank">Demo</a>
+            <a class="btn" href="#" target="_blank">Report</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div>
+            <h3>Sales Forecasting (Time Series)</h3>
+            <p class="meta">Prophet, ARIMA, Python · MAPE ↓ 18%</p>
+            <p>Developed store‑level forecasts; implemented cross‑store holiday effects; automated model retraining and dashboard refresh in Airflow.</p>
+          </div>
+          <div class="links">
+            <a class="btn" href="#" target="_blank">Code</a>
+            <a class="btn" href="#" target="_blank">Dashboard</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div>
+            <h3>Twitter Sentiment Analyzer</h3>
+            <p class="meta">NLP, Flask, Docker</p>
+            <p>Scraped 50k tweets; trained BERT‑based classifier; deployed a lightweight Flask app with Docker; added real‑time trend monitoring.</p>
+          </div>
+          <div class="links">
+            <a class="btn" href="#" target="_blank">Code</a>
+            <a class="btn" href="#" target="_blank">Live App</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- Education & Certifications -->
+    <section id="education">
+      <div class="section-title"><h2>Education & Certifications</h2></div>
+      <div class="grid" style="grid-template-columns: 1.4fr 1fr;">
+        <div class="card" style="padding:16px;">
+          <h3 style="margin:0 0 6px;">B.Tech in Computer Science / Data Science</h3>
+          <p class="meta">[Drs. Kiran and Pallavi Patel Global University], 3nd Year</p>
+          <p>Relevant coursework: Machine Learning, Statistics, Data Mining, Databases, Algorithms.</p>
+        </div>
+        <div class="card" style="padding:16px;">
+          <h3 style="margin:0 0 6px;">Certifications</h3>
+          <ul style="margin:0; padding-left:18px;">
+            <li>IBM Data Science Professional Certificate</li>
+            <li>Machine Learning — Andrew Ng (Coursera)</li>
+            <li>Tableau Desktop Specialist</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-title"><h2>Contact</h2></div>
+      <div class="card contact">
+        <div class="row">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" value="Soni Nirbhay"/>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="your.email@example.com" />
+          </div>
+        </div>
+        <div>
+          <label for="msg">Message</label>
+          <textarea id="msg" placeholder="Hello Soni, I'd like to discuss..." ></textarea>
+        </div>
+        <button class="btn primary" onclick="alert('This is a static demo form. Hook it to a service like Formspree or a backend to receive messages.')">Send Message</button>
+        <div style="font-size:13px; color:var(--muted);">Or reach me directly: <a href="mailto:your.email@example.com" style="color:inherit;">soninirbhay74@gmail.com</a> · <a href="https://github.com/Nirbhay7010/Soni-nirbhay.git" target="_blank" rel="noreferrer" style="color:inherit;">GitHub</a> · <a href="https://www.linkedin.com/in/soni-nirbhay" target="_blank" rel="noreferrer" style="color:inherit;">LinkedIn</a></div>
+      </div>
+    </section>
+
+    <footer class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+        <div>© <span id="year"></span> Soni Nirbhay. All rights reserved.</div>
+        <div class="social">
+          <a href="https://github.com/Nirbhay7010/Soni-nirbhay.git" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/soni-nirbhay" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:soninirbhay74@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle (light/dark)
+    const btn = document.getElementById('themeToggle');
+    const key = 'sn-theme';
+    const saved = localStorage.getItem(key);
+    if (saved === 'light') document.body.classList.add('light');
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+      localStorage.setItem(key, document.body.classList.contains('light') ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
